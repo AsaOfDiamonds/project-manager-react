@@ -12,24 +12,39 @@ class App extends Component {
     }
   }
 
+  getTodos(){
+
+  }
+
+  getProjects(){
+    this.setState({
+      projects: [
+        {
+          id: uuid.v4(),
+          title: 'Business Website',
+          category: 'Web Design'
+        },
+        {
+          id: uuid.v4(),
+          title: 'Social App',
+          category: 'Mobile Development'
+        },
+        {
+          id: uuid.v4(),
+          title: 'Ecommerce Shopping Cart',
+          category: 'Web Development'
+        }
+      ]
+    });
+  }
+
   componentWillMount(){
-   this.setState({projects: [
-     {
-       id: uuid.v4(),
-       title: 'Business Website',
-       category: 'Web Design'
-     },
-     {
-       id: uuid.v4(),
-       title: 'Social App',
-       category: 'Mobile Development'
-     },
-     {
-       id: uuid.v4(),
-       title: 'Ecommerce Shopping Cart',
-       category: 'Web Development'
-     }
-   ]}); 
+   this.getProjects();
+   this.getTodos(); 
+  }
+
+  componentDidMount(){
+    this.getTodos(); 
   }
 
   handleAddProject(project){
